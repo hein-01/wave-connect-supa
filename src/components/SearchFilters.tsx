@@ -158,12 +158,12 @@ export const SearchFilters = ({
           </div>
           
           {/* Centered delivery and filter buttons */}
-          <div className="flex gap-1 w-full md:w-auto">
+          <div className="flex gap-2 w-full md:w-auto md:justify-center">
             <Button 
               type="button" 
               variant="outline" 
               size="sm"
-              className={`border-2 shadow-md hover:shadow-lg transition-all duration-200 text-xs px-2 py-1 h-6 flex-1 ${
+              className={`border-2 shadow-md hover:shadow-lg transition-all duration-200 text-xs px-2 py-1 h-6 flex-1 md:h-9 md:px-4 md:text-sm md:flex-initial ${
                 selectedDelivery.includes("Cash on Delivery") 
                   ? "text-green-700 border-green-500 bg-green-50" 
                   : "hover:text-green-700 hover:border-green-500 hover:bg-green-50"
@@ -183,7 +183,7 @@ export const SearchFilters = ({
               type="button" 
               variant="outline" 
               size="sm"
-              className={`border-2 shadow-md hover:shadow-lg transition-all duration-200 text-xs px-2 py-1 h-6 flex-1 ${
+              className={`border-2 shadow-md hover:shadow-lg transition-all duration-200 text-xs px-2 py-1 h-6 flex-1 md:h-9 md:px-4 md:text-sm md:flex-initial ${
                 selectedDelivery.includes("Pickup In-Store") 
                   ? "text-blue-700 border-blue-500 bg-blue-50" 
                   : "hover:text-blue-700 hover:border-blue-500 hover:bg-blue-50"
@@ -203,7 +203,7 @@ export const SearchFilters = ({
               type="button" 
               variant="outline" 
               size="sm"
-              className="border-2 shadow-md hover:shadow-lg transition-shadow duration-200 text-xs px-2 py-1 h-6 flex-1"
+              className="border-2 shadow-md hover:shadow-lg transition-shadow duration-200 text-xs px-2 py-1 h-6 flex-1 md:h-9 md:px-4 md:text-sm md:flex-initial"
               onClick={() => {
                 setSearch("");
                 setSelectedDelivery([]);
