@@ -51,14 +51,23 @@ export const SearchFilters = ({
         <div className="space-y-2 md:space-y-4">
           {/* Desktop layout */}
           <div className="hidden md:flex gap-2">
-            <form onSubmit={handleSearchSubmit} className="relative flex-1">
-              <Input
-                placeholder="Search businesses..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="border-2 shadow-sm hover:shadow-md focus:shadow-lg focus:border-purple-500 focus-visible:ring-2 focus-visible:ring-purple-500/20 transition-all duration-200"
-              />
-            </form>
+            <div className="relative flex-1 flex">
+              <form onSubmit={handleSearchSubmit} className="relative flex-1">
+                <Input
+                  placeholder="Search businesses..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="border-2 shadow-sm hover:shadow-md focus:shadow-lg focus:border-purple-500 focus-visible:ring-2 focus-visible:ring-purple-500/20 transition-all duration-200 rounded-r-none border-r-0"
+                />
+              </form>
+              <Button 
+                type="button" 
+                onClick={() => handleSearchSubmit(new Event('submit') as any)}
+                className="shadow-md hover:shadow-lg transition-shadow duration-200 rounded-l-none"
+              >
+                Search
+              </Button>
+            </div>
             
             <FiltersModal key={`filters-${resetVersion}`}
               onSearchChange={onSearchChange}
