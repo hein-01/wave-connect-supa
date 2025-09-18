@@ -99,15 +99,6 @@ export const SearchFilters = ({
                 Locations
               </Button>
             </LocationsModal>
-            
-            <Button 
-              type="button" 
-              onClick={() => handleSearchSubmit(new Event('submit') as any)}
-              className="shadow-md hover:shadow-lg transition-shadow duration-200"
-            >
-              <Search className="h-4 w-4 mr-2" />
-              Search
-            </Button>
           </div>
 
           {/* Mobile layout */}
