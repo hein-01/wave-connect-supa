@@ -15,6 +15,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
 } from "@/components/ui/carousel";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -160,7 +161,7 @@ export const FiltersModal = ({
               <Label className="text-sm font-medium text-gray-700">
                 Category
               </Label>
-              <div className="w-full overflow-hidden">
+              <div className="w-full overflow-hidden relative">
                 <Carousel
                   opts={{
                     align: "start",
@@ -198,6 +199,7 @@ export const FiltersModal = ({
                       </CarouselItem>
                     ))}
                   </CarouselContent>
+                  <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 h-8 w-8 bg-white shadow-md border border-gray-200 hover:bg-gray-50" />
                 </Carousel>
               </div>
             </div>
@@ -207,7 +209,7 @@ export const FiltersModal = ({
               <Label className="text-sm font-medium text-gray-700">
                 Products
               </Label>
-              <div className="w-full overflow-hidden">
+              <div className="w-full overflow-hidden relative">
                 <Carousel
                   opts={{
                     align: "start",
@@ -235,6 +237,7 @@ export const FiltersModal = ({
                       </CarouselItem>
                     ))}
                   </CarouselContent>
+                  <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 h-8 w-8 bg-white shadow-md border border-gray-200 hover:bg-gray-50" />
                 </Carousel>
               </div>
             </div>
