@@ -14,6 +14,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -38,6 +39,8 @@ export const LocationsModal = ({
   const [locations, setLocations] = useState<Location[]>([]);
   const [provinces, setProvinces] = useState<string[]>([]);
   const [towns, setTowns] = useState<string[]>([]);
+  const [canScrollPrevProvince, setCanScrollPrevProvince] = useState(false);
+  const [canScrollPrevTown, setCanScrollPrevTown] = useState(false);
 
   // Fetch locations from database
   useEffect(() => {
@@ -143,6 +146,17 @@ export const LocationsModal = ({
                     dragFree: true,
                   }}
                   className="w-full"
+                  setApi={(api) => {
+                    if (!api) return;
+                    
+                    const updateScrollState = () => {
+                      setCanScrollPrevProvince(api.canScrollPrev());
+                    };
+                    
+                    api.on('select', updateScrollState);
+                    api.on('reInit', updateScrollState);
+                    updateScrollState();
+                  }}
                 >
                   <CarouselContent className="-ml-2">
                     <CarouselItem className="pl-2 basis-auto">
@@ -174,6 +188,9 @@ export const LocationsModal = ({
                       </CarouselItem>
                     ))}
                   </CarouselContent>
+                  {canScrollPrevProvince && (
+                    <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 h-8 w-8 bg-white shadow-md border border-gray-200 hover:bg-gray-50" />
+                  )}
                   <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 h-8 w-8 bg-white shadow-md border border-gray-200 hover:bg-gray-50" />
                 </Carousel>
               </div>
@@ -192,6 +209,17 @@ export const LocationsModal = ({
                       dragFree: true,
                     }}
                     className="w-full"
+                    setApi={(api) => {
+                      if (!api) return;
+                      
+                      const updateScrollState = () => {
+                        setCanScrollPrevTown(api.canScrollPrev());
+                      };
+                      
+                      api.on('select', updateScrollState);
+                      api.on('reInit', updateScrollState);
+                      updateScrollState();
+                    }}
                   >
                     <CarouselContent className="-ml-2">
                       <CarouselItem className="pl-2 basis-auto">
@@ -223,6 +251,9 @@ export const LocationsModal = ({
                         </CarouselItem>
                       ))}
                     </CarouselContent>
+                    {canScrollPrevTown && (
+                      <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 h-8 w-8 bg-white shadow-md border border-gray-200 hover:bg-gray-50" />
+                    )}
                     <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 h-8 w-8 bg-white shadow-md border border-gray-200 hover:bg-gray-50" />
                   </Carousel>
                 </div>
