@@ -773,7 +773,7 @@ export const FutsalCourtForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    Please provide the Contact Person's phone number for accepting customer bookings.
+                    Please provide the Contact Person's phone number for accepting customer bookings. Please make sure that the contact person has this app installed on their phone as well.
                     Enter the phone number without a country code or special characters. (e.g. 091234567, 019876543). *
                   </FormLabel>
                   <FormControl>
