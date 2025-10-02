@@ -68,11 +68,9 @@ const formSchema = z.object({
   province: z.string().min(1, "Province is required"),
   town: z.string().min(1, "Town is required"),
   zipCode: z.string().optional(),
-  website: z.string().optional(),
+  infoWebsite: z.string().optional(),
   facebook: z.string().optional(),
   tiktok: z.string().optional(),
-  infoWebsite: z.string().optional(),
-  startingPrice: z.string().min(1, "Starting price is required"),
   posLiteOption: z.enum(["accept", "postpone"]),
   paymentOption: z.enum(["stripe", "bank"]),
 });
@@ -159,11 +157,9 @@ export const FutsalCourtForm = () => {
       province: "",
       town: "",
       zipCode: "",
-      website: "",
+      infoWebsite: "",
       facebook: "",
       tiktok: "",
-      infoWebsite: "",
-      startingPrice: "",
       posLiteOption: "postpone",
       paymentOption: "stripe",
     },
@@ -895,7 +891,7 @@ export const FutsalCourtForm = () => {
               name="streetAddress"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Street Address *</FormLabel>
+                  <FormLabel>Address *</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter street address" {...field} />
                   </FormControl>
@@ -954,7 +950,7 @@ export const FutsalCourtForm = () => {
               name="zipCode"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Zip Code</FormLabel>
+                  <FormLabel>Google Map Location</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter zip code" {...field} />
                   </FormControl>
@@ -968,20 +964,6 @@ export const FutsalCourtForm = () => {
         {/* 11. Online Presence */}
         <Card>
           <CardContent className="space-y-4 pt-6">
-            <FormField
-              control={form.control}
-              name="website"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Online Shop Website</FormLabel>
-                  <FormControl>
-                    <Input placeholder="https://your-website.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
             <FormField
               control={form.control}
               name="facebook"
@@ -1015,7 +997,7 @@ export const FutsalCourtForm = () => {
               name="infoWebsite"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Information Website</FormLabel>
+                  <FormLabel>Website</FormLabel>
                   <FormControl>
                     <Input placeholder="https://your-info-website.com" {...field} />
                   </FormControl>
@@ -1026,26 +1008,7 @@ export const FutsalCourtForm = () => {
           </CardContent>
         </Card>
 
-        {/* 12. Pricing */}
-        <Card>
-          <CardContent className="space-y-4 pt-6">
-            <FormField
-              control={form.control}
-              name="startingPrice"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Starting Price (Minimum Price) *</FormLabel>
-                  <FormControl>
-                    <Input placeholder="$20, From $50, etc." {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </CardContent>
-        </Card>
-
-        {/* 13. Listing Validity & POS Lite System */}
+        {/* 12. Listing Validity & POS Lite System */}
         <Card>
           <CardHeader>
             <CardTitle>Listing Validity & POS Lite System</CardTitle>
