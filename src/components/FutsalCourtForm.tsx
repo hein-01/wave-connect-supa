@@ -62,6 +62,10 @@ const formSchema = z.object({
   rules: z.array(z.string()),
   description: z.string().min(10, "Description must be at least 10 characters"),
   phoneNumber: z.string().min(1, "Phone number is required"),
+  bookingEndHour: z.string().min(1, "Booking end time is required"),
+  bookingEndPeriod: z.enum(["AM", "PM"]),
+  bookingStartHour: z.string().min(1, "Booking start time is required"),
+  bookingStartPeriod: z.enum(["AM", "PM"]),
   streetAddress: z.string().min(1, "Street address is required"),
   province: z.string().min(1, "Province is required"),
   town: z.string().min(1, "Town is required"),
@@ -151,6 +155,10 @@ export const FutsalCourtForm = () => {
       rules: [],
       description: "",
       phoneNumber: "",
+      bookingEndHour: "",
+      bookingEndPeriod: "PM" as const,
+      bookingStartHour: "",
+      bookingStartPeriod: "AM" as const,
       streetAddress: "",
       province: "",
       town: "",
@@ -762,18 +770,21 @@ export const FutsalCourtForm = () => {
 
         {/* 9. Contact Information */}
         <Card>
-          <CardContent className="pt-6">
+          <CardContent className="space-y-6 pt-6">
             <FormField
               control={form.control}
               name="phoneNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone Number *</FormLabel>
+                  <FormLabel>
+                    Please provide the Contact Person's phone number for accepting customer bookings.
+                    Enter the phone number without a country code or special characters. (e.g. 091234567, 019876543). *
+                  </FormLabel>
                   <FormControl>
                     <div className="relative">
                       <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
-                        placeholder="(555) 123-4567"
+                        placeholder="091234567"
                         className="pl-10"
                         {...field}
                       />
@@ -783,6 +794,100 @@ export const FutsalCourtForm = () => {
                 </FormItem>
               )}
             />
+
+            <div className="space-y-4">
+              <FormField
+                control={form.control}
+                name="bookingEndHour"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Until what time is the contact person available to receive booking calls (e.g., 8 PM)? *
+                    </FormLabel>
+                    <div className="flex gap-2">
+                      <FormControl>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <SelectTrigger className="w-32">
+                            <SelectValue placeholder="Hour" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
+                              <SelectItem key={hour} value={hour.toString()}>
+                                {hour}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                      <FormField
+                        control={form.control}
+                        name="bookingEndPeriod"
+                        render={({ field }) => (
+                          <FormControl>
+                            <Select onValueChange={field.onChange} value={field.value}>
+                              <SelectTrigger className="w-24">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="AM">AM</SelectItem>
+                                <SelectItem value="PM">PM</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </FormControl>
+                        )}
+                      />
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="bookingStartHour"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      At what hour does that contact person begin processing booking calls (e.g., 7 AM)? *
+                    </FormLabel>
+                    <div className="flex gap-2">
+                      <FormControl>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <SelectTrigger className="w-32">
+                            <SelectValue placeholder="Hour" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
+                              <SelectItem key={hour} value={hour.toString()}>
+                                {hour}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                      <FormField
+                        control={form.control}
+                        name="bookingStartPeriod"
+                        render={({ field }) => (
+                          <FormControl>
+                            <Select onValueChange={field.onChange} value={field.value}>
+                              <SelectTrigger className="w-24">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="AM">AM</SelectItem>
+                                <SelectItem value="PM">PM</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </FormControl>
+                        )}
+                      />
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
           </CardContent>
         </Card>
 
