@@ -64,8 +64,7 @@ const formSchema = z.object({
   phoneNumber: z.string().min(1, "Phone number is required"),
   bookingEndHour: z.string().min(1, "Booking end time is required"),
   bookingEndPeriod: z.enum(["AM", "PM"]),
-  bookingStartHour: z.string().min(1, "Booking start time is required"),
-  bookingStartPeriod: z.enum(["AM", "PM"]),
+  bookingStartTime: z.string().min(1, "Booking start time is required"),
   streetAddress: z.string().min(1, "Street address is required"),
   province: z.string().min(1, "Province is required"),
   town: z.string().min(1, "Town is required"),
@@ -157,8 +156,7 @@ export const FutsalCourtForm = () => {
       phoneNumber: "",
       bookingEndHour: "",
       bookingEndPeriod: "PM" as const,
-      bookingStartHour: "",
-      bookingStartPeriod: "AM" as const,
+      bookingStartTime: "",
       streetAddress: "",
       province: "",
       town: "",
@@ -844,45 +842,45 @@ export const FutsalCourtForm = () => {
 
               <FormField
                 control={form.control}
-                name="bookingStartHour"
+                name="bookingStartTime"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
                       At what hour does that contact person begin processing booking calls (e.g., 7 AM)? *
                     </FormLabel>
-                    <div className="flex gap-2">
-                      <FormControl>
-                        <Select onValueChange={field.onChange} value={field.value}>
-                          <SelectTrigger className="w-32">
-                            <SelectValue placeholder="Hour" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
-                              <SelectItem key={hour} value={hour.toString()}>
-                                {hour}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </FormControl>
-                      <FormField
-                        control={form.control}
-                        name="bookingStartPeriod"
-                        render={({ field }) => (
-                          <FormControl>
-                            <Select onValueChange={field.onChange} value={field.value}>
-                              <SelectTrigger className="w-24">
-                                <SelectValue />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="AM">AM</SelectItem>
-                                <SelectItem value="PM">PM</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </FormControl>
-                        )}
-                      />
-                    </div>
+                    <FormControl>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select time" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="6 AM">6 AM</SelectItem>
+                          <SelectItem value="7 AM">7 AM</SelectItem>
+                          <SelectItem value="8 AM">8 AM</SelectItem>
+                          <SelectItem value="9 AM">9 AM</SelectItem>
+                          <SelectItem value="10 AM">10 AM</SelectItem>
+                          <SelectItem value="11 AM">11 AM</SelectItem>
+                          <SelectItem value="12 PM (Noon)">12 PM (Noon)</SelectItem>
+                          <SelectItem value="1 PM">1 PM</SelectItem>
+                          <SelectItem value="2 PM">2 PM</SelectItem>
+                          <SelectItem value="3 PM">3 PM</SelectItem>
+                          <SelectItem value="4 PM">4 PM</SelectItem>
+                          <SelectItem value="5 PM">5 PM</SelectItem>
+                          <SelectItem value="6 PM">6 PM</SelectItem>
+                          <SelectItem value="7 PM">7 PM</SelectItem>
+                          <SelectItem value="8 PM">8 PM</SelectItem>
+                          <SelectItem value="9 PM">9 PM</SelectItem>
+                          <SelectItem value="10 PM">10 PM</SelectItem>
+                          <SelectItem value="11 PM">11 PM</SelectItem>
+                          <SelectItem value="12 AM (Midnight)">12 AM (Midnight)</SelectItem>
+                          <SelectItem value="1 AM">1 AM</SelectItem>
+                          <SelectItem value="2 AM">2 AM</SelectItem>
+                          <SelectItem value="3 AM">3 AM</SelectItem>
+                          <SelectItem value="4 AM">4 AM</SelectItem>
+                          <SelectItem value="5 AM">5 AM</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
