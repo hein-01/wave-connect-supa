@@ -1104,29 +1104,27 @@ export const FutsalCourtForm = () => {
                   <p>Please click the Copy button for the number related to your preferred payment provider below and upload your receipt.</p>
                 </div>
                 
-                <div className="space-y-2">
-                  <Label htmlFor="paynow" className="bg-primary text-primary-foreground px-3 py-1 rounded-md inline-block">
+                <div className="flex gap-2 items-center">
+                  <Label htmlFor="paynow" className="bg-primary text-primary-foreground px-3 py-1 rounded-md whitespace-nowrap">
                     PayNow
                   </Label>
-                  <div className="flex gap-2">
-                    <Input
-                      id="paynow"
-                      type="text"
-                      value="091234567"
-                      readOnly
-                      className="flex-1"
-                    />
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => {
-                        navigator.clipboard.writeText("091234567");
-                        toast({ title: "Copied to clipboard!" });
-                      }}
-                    >
-                      Copy
-                    </Button>
-                  </div>
+                  <Input
+                    id="paynow"
+                    type="text"
+                    value="091234567"
+                    readOnly
+                    className="flex-1"
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      navigator.clipboard.writeText("091234567");
+                      toast({ title: "Copied to clipboard!" });
+                    }}
+                  >
+                    Copy
+                  </Button>
                 </div>
                 
                 <div>
