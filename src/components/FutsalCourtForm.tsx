@@ -1108,23 +1108,27 @@ export const FutsalCourtForm = () => {
                   <Label htmlFor="paynow" className="bg-primary text-primary-foreground px-3 py-1 rounded-md whitespace-nowrap">
                     PayNow
                   </Label>
-                  <Input
-                    id="paynow"
-                    type="text"
-                    value="091234567"
-                    readOnly
-                    className="flex-1"
-                  />
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => {
-                      navigator.clipboard.writeText("091234567");
-                      toast({ title: "Copied to clipboard!" });
-                    }}
-                  >
-                    Copy
-                  </Button>
+                  <div className="relative flex-1">
+                    <Input
+                      id="paynow"
+                      type="text"
+                      value="091234567"
+                      readOnly
+                      className="pr-20"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        navigator.clipboard.writeText("091234567");
+                        toast({ title: "Copied to clipboard!" });
+                      }}
+                      className="absolute right-1 top-1/2 -translate-y-1/2 h-8"
+                    >
+                      Copy
+                    </Button>
+                  </div>
                 </div>
                 
                 <div>
