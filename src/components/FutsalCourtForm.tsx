@@ -1129,6 +1129,31 @@ export const FutsalCourtForm = () => {
                   </Button>
                 </div>
                 
+                <div className="relative">
+                  <div className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-3 py-1 rounded-md text-sm font-medium whitespace-nowrap z-10">
+                    WeChatPay
+                  </div>
+                  <Input
+                    id="wechatpay"
+                    type="text"
+                    value="0987654321"
+                    readOnly
+                    className="pl-32 pr-20"
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      navigator.clipboard.writeText("0987654321");
+                      toast({ title: "Copied to clipboard!" });
+                    }}
+                    className="absolute right-1 top-1/2 -translate-y-1/2 h-8"
+                  >
+                    Copy
+                  </Button>
+                </div>
+                
                 <div>
                   <Label htmlFor="receipt">Upload Receipt *</Label>
                   <Input
