@@ -1104,31 +1104,29 @@ export const FutsalCourtForm = () => {
                   <p>Please click the Copy button for the number related to your preferred payment provider below and upload your receipt.</p>
                 </div>
                 
-                <div className="flex gap-2 items-center">
-                  <Label htmlFor="paynow" className="bg-primary text-primary-foreground px-3 py-1 rounded-md whitespace-nowrap">
+                <div className="relative">
+                  <div className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-3 py-1 rounded-md text-sm font-medium whitespace-nowrap z-10">
                     PayNow
-                  </Label>
-                  <div className="relative flex-1">
-                    <Input
-                      id="paynow"
-                      type="text"
-                      value="091234567"
-                      readOnly
-                      className="pr-20"
-                    />
-                    <Button
-                      type="button"
-                      variant="outline"
-                      size="sm"
-                      onClick={() => {
-                        navigator.clipboard.writeText("091234567");
-                        toast({ title: "Copied to clipboard!" });
-                      }}
-                      className="absolute right-1 top-1/2 -translate-y-1/2 h-8"
-                    >
-                      Copy
-                    </Button>
                   </div>
+                  <Input
+                    id="paynow"
+                    type="text"
+                    value="091234567"
+                    readOnly
+                    className="pl-24 pr-20"
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      navigator.clipboard.writeText("091234567");
+                      toast({ title: "Copied to clipboard!" });
+                    }}
+                    className="absolute right-1 top-1/2 -translate-y-1/2 h-8"
+                  >
+                    Copy
+                  </Button>
                 </div>
                 
                 <div>
