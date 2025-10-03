@@ -1100,8 +1100,33 @@ export const FutsalCourtForm = () => {
             {paymentOption === "bank" && (
               <div className="space-y-4 p-4 border rounded-lg bg-muted/50">
                 <div className="text-sm">
-                  <p className="font-semibold mb-2">Bank Payment Instructions:</p>
-                  <p>Please transfer the listing fee to the following account and upload your receipt.</p>
+                  <p className="font-semibold mb-2">Payment Instructions:</p>
+                  <p>Please click the Copy button for the number related to your preferred payment provider below and upload your receipt.</p>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="paynow" className="bg-primary text-primary-foreground px-3 py-1 rounded-md inline-block">
+                    PayNow
+                  </Label>
+                  <div className="flex gap-2">
+                    <Input
+                      id="paynow"
+                      type="text"
+                      value="091234567"
+                      readOnly
+                      className="flex-1"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => {
+                        navigator.clipboard.writeText("091234567");
+                        toast({ title: "Copied to clipboard!" });
+                      }}
+                    >
+                      Copy
+                    </Button>
+                  </div>
                 </div>
                 
                 <div>
