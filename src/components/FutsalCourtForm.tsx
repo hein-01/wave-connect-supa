@@ -160,8 +160,8 @@ export const FutsalCourtForm = () => {
       infoWebsite: "",
       facebook: "",
       tiktok: "",
-      posLiteOption: "postpone",
-      paymentOption: "stripe",
+      posLiteOption: "accept",
+      paymentOption: "bank",
     },
   });
 
@@ -1066,6 +1066,9 @@ export const FutsalCourtForm = () => {
         <Card>
           <CardHeader>
             <CardTitle>Payment Options</CardTitle>
+            <p className="text-sm text-muted-foreground mt-2">
+              The total is $1000. Kindly choose one of the following digital payment methods.
+            </p>
           </CardHeader>
           <CardContent className="space-y-4">
             <FormField
