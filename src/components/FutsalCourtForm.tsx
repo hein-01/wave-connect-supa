@@ -263,7 +263,7 @@ export const FutsalCourtForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         {/* 1. Business Basic Information */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardContent className="pt-6">
             <FormField
               control={form.control}
@@ -282,7 +282,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 2. Field Configuration */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardContent className="space-y-4 pt-6">
             <FormField
               control={form.control}
@@ -346,7 +346,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 3. Operating Hours */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardContent className="space-y-4 pt-6">
             <p className="text-sm text-muted-foreground mb-4">
               Please provide your business's opening and closing hours. If your business is closed on a particular day (e.g., Sunday), you may check the 'Close' checkbox for that day.
@@ -405,7 +405,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 4. Payment Methods */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardHeader>
             <CardTitle>Payment Methods for Bookings</CardTitle>
           </CardHeader>
@@ -558,7 +558,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 5. Facilities */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardHeader>
             <CardTitle>Facilities</CardTitle>
           </CardHeader>
@@ -595,7 +595,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 6. Player Rules */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardHeader>
             <CardTitle>Player Rules</CardTitle>
           </CardHeader>
@@ -605,9 +605,9 @@ export const FutsalCourtForm = () => {
             </p>
 
             <div className="mb-6">
-              <Accordion type="single" collapsible className="w-full space-y-2">
-                <AccordionItem value="item-1" className="border-2 border-primary/20 rounded-lg px-4 bg-card hover:border-primary/30 transition-colors">
-                  <AccordionTrigger className="text-left hover:no-underline">
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger className="text-left">
                     Why bare bodies and bare feet are prohibited in some field rental businesses?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed">
@@ -615,8 +615,8 @@ export const FutsalCourtForm = () => {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-2" className="border-2 border-primary/20 rounded-lg px-4 bg-card hover:border-primary/30 transition-colors">
-                  <AccordionTrigger className="text-left hover:no-underline">
+                <AccordionItem value="item-2">
+                  <AccordionTrigger className="text-left">
                     Why no competitions are allowed in some field rental businesses?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed">
@@ -624,8 +624,8 @@ export const FutsalCourtForm = () => {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-3" className="border-2 border-primary/20 rounded-lg px-4 bg-card hover:border-primary/30 transition-colors">
-                  <AccordionTrigger className="text-left hover:no-underline">
+                <AccordionItem value="item-3">
+                  <AccordionTrigger className="text-left">
                     Why some field rental businesses require players under 18 to be accompanied and supervised by a responsible adult?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed">
@@ -633,8 +633,8 @@ export const FutsalCourtForm = () => {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-4" className="border-2 border-primary/20 rounded-lg px-4 bg-card hover:border-primary/30 transition-colors">
-                  <AccordionTrigger className="text-left hover:no-underline">
+                <AccordionItem value="item-4">
+                  <AccordionTrigger className="text-left">
                     Why Proper Footwear Required(Futsal shoes or flat-soled shoes only)?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed">
@@ -642,8 +642,8 @@ export const FutsalCourtForm = () => {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-5" className="border-2 border-primary/20 rounded-lg px-4 bg-card hover:border-primary/30 transition-colors">
-                  <AccordionTrigger className="text-left hover:no-underline">
+                <AccordionItem value="item-5">
+                  <AccordionTrigger className="text-left">
                     Why No Glass Bottles / Containers?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed">
@@ -682,7 +682,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 7. Business Description */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardContent className="pt-6">
             <FormField
               control={form.control}
@@ -705,7 +705,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 8. Upload Images */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardHeader>
             <CardTitle>Upload Images</CardTitle>
           </CardHeader>
@@ -761,7 +761,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 9. Contact Information */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardContent className="space-y-6 pt-6">
             <FormField
               control={form.control}
@@ -884,7 +884,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 10. Location Information */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardContent className="space-y-4 pt-6">
             <FormField
               control={form.control}
@@ -962,7 +962,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 11. Online Presence */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardContent className="space-y-4 pt-6">
             <FormField
               control={form.control}
@@ -1009,7 +1009,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 12. Listing Validity & POS Lite System */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardHeader>
             <CardTitle>Listing Validity & POS Lite System</CardTitle>
           </CardHeader>
@@ -1063,7 +1063,7 @@ export const FutsalCourtForm = () => {
         </Card>
 
         {/* 14. Payment Options */}
-        <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+        <Card>
           <CardHeader>
             <CardTitle>Payment Options</CardTitle>
             <p className="text-sm text-muted-foreground mt-2">
@@ -1098,10 +1098,10 @@ export const FutsalCourtForm = () => {
             />
 
             {paymentOption === "bank" && (
-              <div className="space-y-4 p-6 border-2 border-accent/30 rounded-lg bg-gradient-to-br from-muted/50 to-accent/10">
+              <div className="space-y-4 p-4 border rounded-lg bg-muted/50">
                 <div className="text-sm">
-                  <p className="font-semibold mb-2 text-lg">Payment Instructions:</p>
-                  <p className="text-muted-foreground">Please click the Copy button for the number related to your preferred payment provider below and upload your receipt.</p>
+                  <p className="font-semibold mb-2">Payment Instructions:</p>
+                  <p>Please click the Copy button for the number related to your preferred payment provider below and upload your receipt.</p>
                 </div>
                 
                 <div className="relative">
@@ -1178,7 +1178,7 @@ export const FutsalCourtForm = () => {
         <Button
           type="submit"
           size="lg"
-          className="w-full text-lg py-6 shadow-lg hover:shadow-xl transition-all"
+          className="w-full"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Creating Listing..." : "List My Service"}
